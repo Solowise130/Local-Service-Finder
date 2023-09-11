@@ -10,6 +10,11 @@ from models.user import Base
 class Service(Base):
     '''A service class
     '''
+    __tablename__ = 'services'
+
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
-    service_providers = relationship('ServiceProvider') # one to many relationship
+    # one to many relationship
+    service_providers = relationship('ServiceProvider',
+                                     backref='service_providers',
+                                     cascade='all, delete, delete-orphan') 
