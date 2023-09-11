@@ -13,9 +13,9 @@ class Review(Base):
     __tablename__ = 'reviews'
 
     id = Column(Integer, primary_key=True)
-    userId = Column(String(250), 
+    userId = Column(Integer, 
                     ForeignKey('users.id'), nullable=False)
-    serviceProviderId = Column(String(250),
+    serviceProviderId = Column(Integer,
                                ForeignKey('service_providers.id'), nullable=False)
     rating = Column(Integer, default=0)
     comment = Column(String(250), nullable=False)
