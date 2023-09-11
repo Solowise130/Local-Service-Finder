@@ -12,4 +12,4 @@ class Service(Base):
     '''
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
-    service_providers = relationship('Service_provider') # one to many relationship
+    service_providers = relationship('ServiceProvider') # one to many relationship
