@@ -8,6 +8,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
+
 class User(Base):
     '''A user class
     '''
