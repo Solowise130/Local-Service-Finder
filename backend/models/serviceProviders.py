@@ -1,20 +1,32 @@
-from flask_sqlalchemy import SQLAlchemy
+#!/usr/bin/python3
+"""
+this is a modules that defines a service
+provider
+"""
+from sqlalchemy import *
+from sqlalchemy.orm import relationship
+from models.user import Base
 
-db = SQLAlchemy()
 
-class ServiceProvider(db.Model):
+class ServiceProvider(Base):
+    """
+    this is a the model for
+    service
+    """
     __tablename__ = 'service_providers'
 
-    provider_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    company_name = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.Text)
-    location = db.Column(db.String(255))
-    created_at = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), nullable=False)
-    updated_at = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), onupdate=db.func.current_timestamp(), nullable=False)
-    
-    
-    user = db.relationship('User', backref=db.backref('service_providers', lazy=True))
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    first_name = Column(String(250), nullable=False)
+    last_name = Column(String(250), nullable=False)
+    location = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    hashed_password = Column(String(250), nullable=False)
+    service = Column(String(255), ForeignKey('services.id'), nullable=False)
+    description = Column(Text)
+    created_at = Column(TIMESTAMP,
+                        server_default=func.current_timestamp(),
+                        nullable=False
+                        )
 
     def __init__(self, user_id, company_name, description=None, location=None):
         self.user_id = user_id
