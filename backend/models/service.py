@@ -16,5 +16,5 @@ class Service(Base):
     name = Column(String(250), nullable=False)
     # one to many relationship
     service_providers = relationship('ServiceProvider',
-                                     backref='service_providers',
+                                     backref='services',
                                      cascade='all, delete, delete-orphan') 
