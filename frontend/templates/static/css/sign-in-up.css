@@ -107,10 +107,6 @@ form .input-field label{
     text-decoration: none;
 }
 
-.form-content .link{
-    color: white
-}
-
 .form-box a:hover {
     text-decoration: underline;
 }
