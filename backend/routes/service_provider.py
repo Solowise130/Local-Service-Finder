@@ -1,6 +1,6 @@
 from backend import app
 from flask import render_template, request, jsonify
-from backend.models.serviceProviders import ServiceProvider
+from backend.models.serviceProvider import ServiceProvider
 from backend import db
 
 """
@@ -29,4 +29,4 @@ def signup():
     new_servce_provider = db.add_service_provider(**json_data)
     if new_servce_provider is None:
         return jsonify({'status': 'error'})
-    return jsonify({'data': json_data}).status_code(201)
+    return jsonify({'data': json_data}), 201

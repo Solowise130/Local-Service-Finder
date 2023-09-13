@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from backend.models.user import Base
 from backend.models.service import Service
 from backend.models.review import Review
-from backend.models.serviceProviders import ServiceProvider
+from backend.models.serviceProvider import ServiceProvider
 
 
 class DB:
