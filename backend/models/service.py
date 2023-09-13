@@ -4,7 +4,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from models.user import Base
+from .user import Base
 
 
 class Service(Base):
@@ -15,6 +15,4 @@ class Service(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     # one to many relationship
-    service_providers = relationship('ServiceProvider',
-                                     backref='services',
-                                     cascade='all, delete, delete-orphan') 
+    provider_id = Column(Integer, ForeignKey('service_providers.id'))
