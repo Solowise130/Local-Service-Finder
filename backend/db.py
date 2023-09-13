@@ -3,7 +3,7 @@
 '''
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models.user import Base, User
+from models.user import Base
 from models.service import Service
 from models.review import Review
 from models.serviceProvider import ServiceProvider
@@ -27,4 +27,4 @@ class DB:
         Base.metadata.create_all(self._engine)
 
 
-# test = DB()
+test = DB()

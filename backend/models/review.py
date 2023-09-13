@@ -13,8 +13,8 @@ class Review(Base):
     __tablename__ = 'reviews'
 
     id = Column(Integer, primary_key=True)
-    userId = Column(Integer, 
-                    ForeignKey('users.id'), nullable=False)
+    # userId = Column(Integer, 
+    #                 ForeignKey('users.id'), nullable=False)
     serviceProviderId = Column(Integer,
                                ForeignKey('service_providers.id'), nullable=False)
     rating = Column(Integer, default=0)
