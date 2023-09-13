@@ -1,7 +1,7 @@
 from flask import Flask
-from .routes import service_provider
-from db import DB
+from .routes import *
+from backend.db import DB
 
 
-app = Flask(__name__, template_folder='./../frontend/templates')
+app = Flask(__name__)
 db = DB()

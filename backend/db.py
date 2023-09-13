@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from backend.models.user import Base
 from backend.models.service import Service
 from backend.models.review import Review
-from backend.models.serviceProvider import ServiceProvider
+from backend.models.serviceProviders import ServiceProvider
 
 class DB:
     '''DB class
@@ -47,6 +47,12 @@ class DB:
             return None
         
         new_service_provider = ServiceProvider()
+        new_service_provider.first_name = first_name
+        new_service_provider.last_name = last_name
+        new_service_provider.email = email
+        # needs to be hashed
+        new_service_provider.hashed_password = password
+        new_service_provider.service = service_id
         self.__session.add(new_service_provider)
         self.__session.commit()
 
