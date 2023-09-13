@@ -8,11 +8,12 @@ this is the route for the
 service providers
 """
 
+
 @app.route('/serviceProvider/signup', methods=['POST'])
 def signup():
     """
     this is a method to signup
-    a service provider the 
+    a service provider the
     end point
     """
     #   {
@@ -25,11 +26,7 @@ def signup():
     #   "termsAndConditions": true
     #   }
     json_data = request.get_json()
-
     new_servce_provider = db.add_service_provider(**json_data)
     if new_servce_provider is None:
         return jsonify({'status': 'error'})
-    
-    return jsonify({'status': 'success'})
-    
-    
+    return jsonify({'data': json_data}).status_code(201)
