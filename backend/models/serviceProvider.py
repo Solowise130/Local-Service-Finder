@@ -30,9 +30,3 @@ class ServiceProvider(Base):
                         onupdate=func.current_timestamp(), nullable=False)
 
     user = relationship('User', backref='service_providers', lazy=True)
-
-    # def __init__(self, user_id, company_name, description=None, location=None):
-    #     self.user_id = user_id
-    #     self.company_name = company_name
-    #     self.description = description
-    #     self.location = location
