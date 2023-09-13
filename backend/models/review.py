@@ -4,7 +4,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from models.user import Base
+from .user import Base
 
 
 class Review(Base):
