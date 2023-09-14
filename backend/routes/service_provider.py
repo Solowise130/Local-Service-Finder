@@ -30,3 +30,4 @@ def signup():
     if new_servce_provider is None:
         return jsonify({'status': 'error'})
     return jsonify({'data': json_data}), 201
+

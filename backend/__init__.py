@@ -1,8 +1,7 @@
 from flask import Flask
-from backend.db import DB
+from backend.db import db
 
 
 app = Flask(__name__)
-db = DB()
 
 from backend.routes import service_provider

@@ -64,6 +64,6 @@ class DB:
         return new_service_provider
 
 
-'''
-test = DB()
-'''
+
+db = DB()
+
