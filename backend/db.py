@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 '''DB module
 '''
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
-from backend.models.user import Base
-from backend.models.service import Service
-from backend.models.review import Review
-from backend.models.serviceProviders import ServiceProvider
-
+from models.user import Base
+from models.service import Service
+from models.review import Review
+from models.serviceProvider import ServiceProvider
+print(sys.path)
 class DB:
     '''DB class
     '''
@@ -28,6 +29,7 @@ class DB:
         DBSession = sessionmaker(bind=self._engine)
         self.__session = DBSession()
 
+
     def add_service_provider(self, **kwargs):
         '''Add service providers
         '''
@@ -46,18 +48,33 @@ class DB:
                 created_at]):
             return None
         
-        new_service_provider = ServiceProvider()
-        new_service_provider.first_name = first_name
-        new_service_provider.last_name = last_name
-        new_service_provider.email = email
-        # needs to be hashed
-        new_service_provider.hashed_password = password
-        new_service_provider.service = service_id
+        new_service_provider = ServiceProvider(first_name=first_name,
+                                               last_name=last_name,
+                                               location=location,
+                                               email=email,
+                                               phone_number=contact_num,
+                                               hashed_password=password,
+                                               service=service_id,
+                                               description=description)
+        # new_service_provider.first_name = first_name
+        # new_service_provider.last_name = last_name
+        # new_service_provider.email = email
+        # # needs to be hashed
+        # new_service_provider.hashed_password = password
+        # new_service_provider.service = service_id
         self.__session.add(new_service_provider)
         self.__session.commit()
 
         return new_service_provider
-            
+    
+    def add_service(self, name):
+        '''Add a service to the DB
+        '''
+        new_service = Service(name=name)
+        self.__session.add(new_service)
+        self.__session.commit()
         
 
-# test = DB()
+db = DB()
+db.add_service(name='Plumber')
+db.add_service(name='BrickLayer')

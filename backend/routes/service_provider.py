@@ -1,8 +1,9 @@
 from backend import app
 from flask import render_template, request, jsonify
-from backend.models.serviceProviders import ServiceProvider
-from backend import db
-
+from backend.models.serviceProvider import ServiceProvider
+from backend.db import db
+import sys
+print(sys.path)
 """
 this is the route for the
 service providers
