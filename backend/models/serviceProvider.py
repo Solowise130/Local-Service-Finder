@@ -22,10 +22,7 @@ class ServiceProvider(Base):
     email = Column(String(250), nullable=False)
     phone_number = Column(String(250), nullable=False)
     hashed_password = Column(String(250), nullable=False)
-<<<<<<< HEAD
     service = Column(Integer, ForeignKey('services.id'), nullable=False)
-=======
->>>>>>> 5991d3dfa157f61f1aa5cfaf0622af877e0e6ec4
     description = Column(Text)
     services = relationship('Service', backref='service_providers',
                             cascade='all, delete, delete-orphan'
@@ -37,14 +34,3 @@ class ServiceProvider(Base):
                         server_default=func.current_timestamp(),
                         nullable=False
                         )
-
-<<<<<<< HEAD
-    # def __init__(self, user_id, company_name, description=None, location=None):
-=======
-    # def __init__(self, user_id, company_name,
-    # description=None, location=None):
->>>>>>> 5991d3dfa157f61f1aa5cfaf0622af877e0e6ec4
-    #     self.user_id = user_id
-    #     self.company_name = company_name
-    #     self.description = description
-    #     self.location = location
