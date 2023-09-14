@@ -1,6 +1,8 @@
 from backend import app
 from flask import render_template, request, jsonify
 from backend.models.serviceProvider import ServiceProvider
+from db import db
+
 
 """
 this is the route for the
@@ -29,3 +31,4 @@ def signup():
     if new_servce_provider is None:
         return jsonify({'status': 'error'})
     return jsonify({'data': json_data}), 201
+

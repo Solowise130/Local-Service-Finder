@@ -24,9 +24,8 @@ class ServiceProvider(Base):
     hashed_password = Column(String(250), nullable=False)
     service = Column(Integer, ForeignKey('services.id'), nullable=False)
     description = Column(Text)
-    services = relationship('Service', backref='service_providers',
-                            cascade='all, delete, delete-orphan'
-                            )
+    
+    services = Column(String(250), nullable=False)
     reviews = relationship('Review', backref='service_providers',
                            cascade='all, delete, delete-orphan'
                            )

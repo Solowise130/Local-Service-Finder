@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-'''A module for service'''
+# #!/usr/bin/python3
+# '''A module for service'''
 
 # from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 # from sqlalchemy.orm import relationship
