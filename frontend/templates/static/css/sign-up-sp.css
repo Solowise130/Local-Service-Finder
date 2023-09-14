@@ -35,9 +35,9 @@ body{
 }
 
 .form-box .form-details{
-    max-width: 330px;
+    max-width: 3000px;
     display: flex;
-    width: 100%;
+    width: 68%;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -85,13 +85,13 @@ form .input-field{
 }
 
 form .input-field input{
-    width: 100%;
+    width: 93%;
     height: 100%;
     border: 1px solid #717171;
     outline: none;
     border-radius: 3px;
-    font-size: 0.95rem;
-    padding: 0 15px;
+    font-size: 0.93rem;
+    padding: 0 10px;
 }
 
 .input-field input:is(:focus, :valid) {
@@ -106,7 +106,7 @@ form .input-field input{
 form .input-field label{
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 12px;
     color: #717171;
     pointer-events:none;
     transform: TranslateY(-50%);
@@ -135,7 +135,7 @@ form .input-field label{
 }
 
 form button {
-    width: 100%;
+    width: 90%;
     color: #fff;
     border: none;
     outline: none;
@@ -178,4 +178,17 @@ form button:hover{
     .form-box .form-content {
         padding: 30px 20px;
     }
+    form{
+      height: 80vh;
+    }
+    form button{
+      width: 95%;
+      height:90%;
+    }
+}
+
+.form-content form .fields{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
