@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''A module for review'''
 
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Table
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from .user import Base

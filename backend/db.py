@@ -4,10 +4,17 @@
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
+<<<<<<< HEAD
 from backend.models.user import Base
 from backend.models.service import Service
 from backend.models.review import Review
 from backend.models.serviceProvider import ServiceProvider
+=======
+from models.user import Base
+# from models.service import Service
+from models.review import Review
+from models.serviceProvider import ServiceProvider
+>>>>>>> apis
 
 
 class DB:
@@ -46,7 +53,7 @@ class DB:
 
         if not all([first_name, last_name, email]):
             return None
-
+        
         new_service_provider = ServiceProvider()
         new_service_provider.first_name = first_name
         new_service_provider.last_name = last_name
@@ -56,13 +63,13 @@ class DB:
         new_service_provider.description = description
         new_service_provider.created_at = created_at
         new_service_provider.hashed_password = password
-        new_service_provider.service = service
         # needs to be hashed
         # new_service_provider.hashed_password = password
+        new_service_provider.services = service
+
         self.__session.add(new_service_provider)
         self.__session.commit()
 
         return new_service_provider
-
 
 db = DB()
