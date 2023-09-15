@@ -1,13 +1,13 @@
 from backend import app
 from flask import render_template, request, jsonify
-from db import db
+from backend.db import db
 
 
 """
 this is the route for the
 service providers
 """
-
+print('this is from the route')
 
 @app.route('/serviceProvider/signup', methods=['POST'])
 def signup():
@@ -16,15 +16,7 @@ def signup():
     a service provider the
     end point
     """
-    #   {
-    #   "firstName": "John",
-    #   "lastName": "Doe",
-    #   "mobileNumber": "1234567890",
-    #   "email": "johndoe@example.com",
-    #   "password": "password",
-    #   "confirmPassword": "password",
-    #   "termsAndConditions": true
-    #   }
+    print('hello')
     json_data = request.get_json()
     new_servce_provider = db.add_service_provider(**json_data)
     if new_servce_provider is None:

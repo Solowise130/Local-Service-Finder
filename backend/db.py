@@ -56,7 +56,7 @@ class DB:
         new_service_provider.description = description
         new_service_provider.created_at = created_at
         new_service_provider.hashed_password = password
-        new_service_provider.service = service
+        new_service_provider.services = service
         self.__session.add(new_service_provider)
         self.__session.commit()
 
