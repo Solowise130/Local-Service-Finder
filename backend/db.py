@@ -4,17 +4,12 @@
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
-<<<<<<< HEAD
+
 from backend.models.user import Base
-from backend.models.service import Service
+# from backend.models.service import Service
 from backend.models.review import Review
 from backend.models.serviceProvider import ServiceProvider
-=======
-from models.user import Base
-# from models.service import Service
-from models.review import Review
-from models.serviceProvider import ServiceProvider
->>>>>>> apis
+
 
 
 class DB:

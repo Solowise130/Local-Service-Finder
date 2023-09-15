@@ -1,5 +1,5 @@
 from flask import Flask
+from backend.db import db
 
 app = Flask(__name__)
-
-from .routes import *
+from backend.routes import service_provider
