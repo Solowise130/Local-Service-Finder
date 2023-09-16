@@ -7,6 +7,7 @@ from backend.models.user import Base
 # from backend.models.service import Service
 from backend.models.review import Review
 from backend.models.serviceProvider import ServiceProvider
+from backend.Auth.auth import hash_password
 
 
 class DB:
@@ -24,7 +25,7 @@ class DB:
             f'mysql+mysqldb://{user}:{password}@{host}/{db}',
             pool_pre_ping=True
         )
-        # Base.metadata.drop_all(self._engine)
+        Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         DBSession = sessionmaker(bind=self._engine)
         self.__session = DBSession()
@@ -33,6 +34,9 @@ class DB:
     def add_service_provider(self, **kwargs):
         '''Add service providers
         '''
+        if not kwargs:
+            return None
+        
         first_name = kwargs.get('firstName')
         last_name = kwargs.get('lastName')
         location = kwargs.get('location')
@@ -43,7 +47,8 @@ class DB:
         description = kwargs.get('description')
         created_at = kwargs.get('created_at')
 
-        if not all([first_name, last_name, email]):
+        if not all([first_name, last_name, location, 
+                    email, password, service, contact_num]):
             return None
         
         new_service_provider = ServiceProvider()
@@ -54,9 +59,7 @@ class DB:
         new_service_provider.phone_number = contact_num
         new_service_provider.description = description
         new_service_provider.created_at = created_at
-        new_service_provider.hashed_password = password
-        # needs to be hashed
-        # new_service_provider.hashed_password = password
+        new_service_provider.hashed_password = hash_password(password)
         new_service_provider.services = service
 
         self.__session.add(new_service_provider)
@@ -64,5 +67,43 @@ class DB:
 
         return new_service_provider
     
+
+    def add_review(self, **kwargs):
+        '''Add a review
+        '''
+        if not kwargs:
+            return None
+        
+        serviceProviderId = kwargs.get('serviceProviderId')
+        rating = kwargs.get('rating')
+        comment = kwargs.get('comment')
+
+        if not all([rating, comment]):
+            return None
+        
+        new_review = Review(serviceProviderId=serviceProviderId,
+                            rating=rating, comment=comment)
+        
+        self.__session.add(new_review)
+        self.__session.commit()
+        
+        return new_review
+
+
+    def get_service_provider(self, id):
+        '''Get service provider by Id
+        '''
+        if not id:
+            return None
+        
+        service_provider = self.__session.query(ServiceProvider).filter(
+            ServiceProvider.id == id
+        ).first()
+
+        if service_provider:
+            return service_provider
+        
+        return None
+
 
 db = DB()

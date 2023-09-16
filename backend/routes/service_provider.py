@@ -20,9 +20,11 @@ def signup():
     new_servce_provider = db.add_service_provider(**json_data)
     if new_servce_provider is None:
         return jsonify({'status': 'error'})
-    return jsonify({'data': json_data}), 201
+    
+    return jsonify({'status': f'New service provider {new_servce_provider.first_name} {new_servce_provider.last_name} created'}), 201
 
 
 def sigin():
     '''signin a service provider
     '''
+    pass
