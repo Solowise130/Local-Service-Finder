@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 '''DB module
 '''
-import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from backend.models.user import Base
 # from backend.models.service import Service
-from models.review import Review
-from models.serviceProvider import ServiceProvider
+from backend.models.review import Review
+from backend.models.serviceProvider import ServiceProvider
 
 
 class DB:
@@ -25,7 +24,7 @@ class DB:
             f'mysql+mysqldb://{user}:{password}@{host}/{db}',
             pool_pre_ping=True
         )
-        Base.metadata.drop_all(self._engine)
+        # Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         DBSession = sessionmaker(bind=self._engine)
         self.__session = DBSession()
