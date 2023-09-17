@@ -11,3 +11,7 @@ def hash_password(password: str) -> bytes:
     hash = bcrypt.hashpw(bytes, salt)
     return hash
 
+
+def verify_password(provided_password, stored_password_hash):
+    return bcrypt.checkpw(provided_password.encode('utf-8'),
+                          stored_password_hash.encode('utf-8'))
