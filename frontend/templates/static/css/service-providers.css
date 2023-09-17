@@ -30,6 +30,11 @@ nav ul li.logo{
     float: left;
 }
 
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
 nav ul li.search-icon{
     display: inline-flex;
     float: right;
