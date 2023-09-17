@@ -4,23 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/frontend/templates/static/css/service-providers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/d2b0b7685a.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Service-Providers</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li class = "logo">ServiceFinder</li>
+            <li class = "search-icon">
+                <input type="search" name="search" placeholder="Search">
+                <label class="icon"><span class = "fas fa-search"></span></label>
+            </li>
+        </ul>
+    </nav>
     <div class="service-provider-container">
         <h1>Our Service Providers</h1>
         <div class="services-grid">
     
             <!-- Each Service Provider -->
-            {% for service in ["Plumber", "Make-Up Artist", "Technician", "Logistics Services", "Barber", "Electrician", "Mower", "Security Men", "Tailor"] %}
             <div class="service-card">
-                <a href="/contactus"> <!-- Clicking this will redirect to Contact Us page -->
-                    <img src="{{ url_for('static', filename='images/' + service|lower|replace(" ", "_") + '.jpg') }}" alt="{{ service }}">
-                    <h3>{{ service }}</h3>
+                <a href="../templates/Contact-us.html"> <!-- Clicking this will redirect to Contact Us page -->
+                    <img src="../templates/static/css/PLUMBER.jpg" alt="Image not Found">
+                    <h3>Plumber</h3>
                 </a>
             </div>
-            {% endfor %}
-    
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/Make-up.jpg" alt="Image not Found">
+                    <h3>Make-up Artist</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/hair stylist.jpg" alt="Image not Found">
+                    <h3>Hairdresser</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/technician.jpg" alt="Image not Found">
+                    <h3>Technician</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/Logistics services.jpg" alt="Image not Found">
+                    <h3>Logistics Services</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/barber.jpg" alt="Image not Found">
+                    <h3>Barber</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/Electrician.jpg" alt="Image not Found">
+                    <h3>Electrician</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/Mower.jpg" alt="Image not Found">
+                    <h3>Mower</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/Security-men.jpg" alt="Image not Found">
+                    <h3>Security Men</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="../templates/Contact-us.html">
+                    <img src="../templates/static/css/tailor.jpg" alt="Image not Found">
+                    <h3>Tailor</h3>
+                </a>
+            </div>
         </div>
     </div>
   
