@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/templates/static/css/service-providers.css">
+    <title>Service-Providers</title>
+</head>
+<body>
+    <div class="service-provider-container">
+        <h1>Our Service Providers</h1>
+        <div class="services-grid">
+    
+            <!-- Each Service Provider -->
+            {% for service in ["Plumber", "Make-Up Artist", "Technician", "Logistics Services", "Barber", "Electrician", "Mower", "Security Men", "Tailor"] %}
+            <div class="service-card">
+                <a href="/contactus"> <!-- Clicking this will redirect to Contact Us page -->
+                    <img src="{{ url_for('static', filename='images/' + service|lower|replace(" ", "_") + '.jpg') }}" alt="{{ service }}">
+                    <h3>{{ service }}</h3>
+                </a>
+            </div>
+            {% endfor %}
+    
+        </div>
+    </div>
+  
+</body>
+</html>
