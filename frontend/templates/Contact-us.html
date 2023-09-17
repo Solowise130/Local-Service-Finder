@@ -1,13 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Contact-Us</title>
-    {% block extra_styles %}
-    <link rel="stylesheet" href="{{ url_for('static', Contact-Us='css/contactus.css') }}">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/templates/static/css/contact-us.css">
+    <title>About Us</title>
 </head>
 <body>
-    <nav>...</nav>
-    {% block content %}{% endblock %}
-    <footer>...</footer>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Whether you have a question about our services, need assistance, or have feedback, our team is ready to answer all your questions. Feel free to drop us a message below:</p>
+        <form action="/submit-contact" method="POST">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <p class="small-text">Or connect with us on our social media platforms. We're here to help!</p>
+</div>
+        <div class="social-buttons">
+            <a href="facebook.com" class="social-btn facebook">Facebook</a>
+            <a href="twitter.com" class="social-btn twitter">Twitter</a>
+            <a href="instagram.com" class="social-btn instagram">Instagram</a>
+        </div>
+    </div>
+
 </body>
 </html>
