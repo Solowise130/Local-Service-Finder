@@ -20,7 +20,7 @@
             </div>
             <div class="form-content">
                 <h2>SIGN-UP</h2>
-                <form action="Account.html">
+                <form action="/frontend/templates/Sign-In.html">
                     <div class="form first">
                       <div class="fields">
                         <div class="input-field">
@@ -41,16 +41,15 @@
                             <label>Enter Email</label>
                         </div>
                         <div class="input-field">
-                            <input type="password" required>
+                            <input type="password" id = "pass" required>
                             <label>Create Password</label>
                         </div>
                         <div class="input-field">
-                            <input type="password" required>
+                            <input type="password" id ="confirmpass" required>
                             <label>Confirm Password</label>
                         </div>
-                        <div class="form first">
-                        <div class="input-field">
-                          <input type="text" required>
+                        <div class="input-field" >
+                          <input type="text" onclick="passwordConfirmation()" required>
                           <label>Enter Your Location</label>
                         </div>
                         <div class="input-field">
@@ -64,12 +63,11 @@
                         <div class="policy-text"><input type="checkbox" id="policy">
                           <label for="policy"> I agree to the <a href="#">Terms & Conditions</a></label>
                         </div>
-                        <button type="submit" class ="nextBtn">
+                        <button type="submit" class ="nextBtn" onclick=" passwordConfirmation2()">
                             <span>Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>
-                    </div>
-                    
+                
                 </form>
                 <div class="bottom-link">
                     Already have an account?
@@ -78,5 +76,6 @@
             </div>
         </div>
     </div>
+    <script src="/frontend/templates/static/js/script.js"></script>
 </body>
 </html>
