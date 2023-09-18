@@ -26,7 +26,7 @@ class DB:
             f'mysql+mysqldb://{user}:{password}@{host}/{db}',
             pool_pre_ping=True
         )
-        Base.metadata.drop_all(self._engine)
+        # Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         DBSession = sessionmaker(bind=self._engine)
         self.__session = DBSession()
@@ -50,7 +50,14 @@ class DB:
         if not all([first_name, last_name, location,
                     email, password, service, contact_num]):
             return None
-
+        
+        # check if service provider exists
+        provider = self.__session.query(ServiceProvider).filter(
+            ServiceProvider.email == email
+        ).first()
+        if provider:
+            return None
+        
         new_service_provider = ServiceProvider()
         new_service_provider.first_name = first_name
         new_service_provider.last_name = last_name
@@ -111,11 +118,11 @@ class DB:
             ).first()
         # print(service_provider.hashed_password)
         if not service_provider:
-            return {'status': 'service provider not found'}
+            return None
         if verify_password(password, service_provider.hashed_password):
             service_provider.is_active = True
             return {'status': 'success', 'service_provider': service_provider}
-        return {'status': 'wrong password'}
+        return None
 
 
 db = DB()
