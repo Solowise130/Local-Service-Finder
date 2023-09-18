@@ -4,10 +4,11 @@ this is a modules that defines a service provider
 """
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
+from flask_login import UserMixin
 from .user import Base
 
 
-class ServiceProvider(Base):
+class ServiceProvider(UserMixin, Base):
     """
     this is a the model for
     service
