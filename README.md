@@ -1,4 +1,4 @@
-Local-Service-Finder
+                    Local-Service-Finder
 
 This is a collaborative Project put up by a team of four vibrant ALX Software Engineering trainees to showcase the skills acquired in our one-year of intensive training in the ALX Cohort9 2022/23 Session.
 
