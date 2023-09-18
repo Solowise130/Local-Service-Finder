@@ -186,3 +186,7 @@ form input{
     float: right;
 }
 
+.home {
+    font-weight: 800;
+    color: #5db493;
+}

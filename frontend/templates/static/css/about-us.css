@@ -65,14 +65,23 @@ section.about {
         text-align: center;
       }
     .about .team ul {
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
     section h2{
         padding-top: 14px;
         font-size: 2rem;
     }
     .about .company-info {
-        margin-top: 9px;
+        margin-top: 15px;
         letter-spacing: 1px;
     }
+}
+.Return {
+    font-size: 30px;
+    font-weight: 200;
+    padding-bottom: 5%;
+    border-color: blue;
+}
+.head {
+    padding-top: 8%;
 }
