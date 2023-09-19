@@ -107,16 +107,18 @@ h1 {
     text-align: center;
     margin: 10px 0;
     padding: 10px;
+    color: #008000;
+
 }
 body{
-    background-color:#5DB493;
+    background-color:whitesmoke;
 }
 .description{
     text-align: center;
     font-style: oblique;
     font-size: 450%;
     font-weight: 50%;
-    color: white;
+    color: #008000;
 }
 h2{
     text-align: center;
