@@ -31,10 +31,14 @@ def faq():
     return render_template('FAQs.html')
 
 @app.route('/services')
-def service():
+@app.route('/services/<service_type>')
+def service(service_type=None):
     '''handles services page
     '''
-    return render_template('Services.html')
+    if not service_type:
+        return render_template('Services.html')
+    
+    return render_template('service.html', service_type=service_type)
 
 @app.route('/contact-us')
 def contact():

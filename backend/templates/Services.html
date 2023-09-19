@@ -40,7 +40,7 @@
     
             <!-- Each Service Provider -->
             <div class="service-card">
-                <a href="Service-providers/Plumber.html"> 
+                <a href="/services/plumbers"> 
                     <img src="../static/css/PLUMBER.jpg" alt="Image not Found">
                     <h3>Plumber</h3>
                 </a>
@@ -102,6 +102,18 @@
             <p class="home"><a href="{{ url_for('index') }}"><strong>Homepage</strong></a></p>
         </div>
     </div>
-  
+  <script>
+    function query(service) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set("service", service);
+
+      history.pushState(null, null, "?"+queryParams.toString());
+      location.reload();
+
+      $(window).bind('popstate', function(){
+    window.location.href = window.location.href;
+  });
+    }
+  </script>
 </body>
 </html>
