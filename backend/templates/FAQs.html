@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/FAQs.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>FAQ</title>
+</head>
+<body>
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq-grid">
+
+        <!-- Question 1 -->
+        <div class="faq-card">=
+            <h3>What are the available means of payment?</h3>
+            <p>POS, Bank transfer, Flutter Wave, Payoneer.</p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="faq-card">
+            <h3>Do I need to pay before the services are rendered?</h3>
+            <p>Pay after service.</p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="faq-card">
+            <h3>Why should I trust you?</h3>
+            <p>See what our customers have to say on our social media.</p>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="faq-card">
+            <h3>How do I verify the authenticity of a service provider?</h3>
+            <p>All our service providers undergo a verification process before listing. However, it's always a good idea to check their reviews and ratings on our platform for added peace of mind.</p>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="faq-card">
+            <h3>Can I modify or cancel my request after booking a service?</h3>
+            <p>All you can do is relate directly with our service provider.</p>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="faq-card">
+            <h3>Are my personal details safe on your platform?</h3>
+            <p>Absolutely! We prioritize user privacy. Your personal details are encrypted and are not shared with service providers without your explicit consent.</p>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <p class="home"><a href="{{ url_for('index') }}"><strong>Homepage</strong></a></p>
+</div>
+
+</body>
+</html>

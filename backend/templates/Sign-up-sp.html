@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign-in-up.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="blur-bg-overlay"></div>
+    <div class="form-popup">
+        <div class="form-box">
+            <div class="form-details">
+                <h2>Create Account</h2>
+                <p>To be part of our community, please sign in using your personal information.</p>
+            </div>
+            <div class="form-content">
+                <h2>SIGN-UP</h2>
+                <form action="/serviceProvider/signup" method="post">
+                    <div class="form first">
+                      <div class="fields">
+                        <div class="input-field">
+                            <input type="text" name="first_name" required>
+                            <label>Enter First Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="last_name" required>
+                            <label>Enter Last Name</label>
+                        </div>
+                       </div>
+                        <div class="input-field">
+                            <input type="number" name="contact_num" required>
+                            <label>Enter Mobile Number</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" name="email" required>
+                            <label>Enter Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id = "pass" name="password" required>
+                            <label>Create Password</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id ="confirmpass" required>
+                            <label>Confirm Password</label>
+                        </div>
+                        <div class="input-field" >
+                          <input type="text" onclick="passwordConfirmation()" name="location" required>
+                          <label>Enter Your Location</label>
+                        </div>
+                        <div class="input-field">
+                          <input type="text" name="service" required>
+                          <label>Enter Your Service</label>
+                        </div>
+                        <div class="input-field">
+                          <input type="text" name="description" required>
+                          <label>Enter a description of your service</label>
+                        </div>
+                        <div class="policy-text"><input type="checkbox" id="policy">
+                          <label for="policy"> I agree to the <a href="#">Terms & Conditions</a></label>
+                        </div>
+                        <button type="submit" class ="nextBtn">
+                            <span>Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                
+                </form>
+                <div class="bottom-link">
+                    Already have an account?
+                    <a href="{{ url_for('signin') }}">Log In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
