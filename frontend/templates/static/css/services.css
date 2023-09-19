@@ -108,4 +108,24 @@ h1 {
     margin: 10px 0;
     padding: 10px;
 }
-
+body{
+    background-color:#5DB493;
+}
+.description{
+    text-align: center;
+    font-style: oblique;
+    font-size: 450%;
+    font-weight: 50%;
+    color: white;
+}
+h2{
+    text-align: center;
+}
+h3{
+    font-family: abel;
+    font-size: 150%;
+}
+.overview{
+    font-size: 120%;
+    font-family:  Bellefair;
+}
