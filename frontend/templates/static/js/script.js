@@ -11,11 +11,11 @@ function passwordConfirmation() {
         alert("Please make sure your passwords match.")
     }
 }
-function passwordConfirmation2() {
-    var password = document.getElementById("pass").value;
-    var confirmPassword = document.getElementById("confirmpass").value;
-    if (password == confirmPassword) {
-        window.location.assign = "/frontend/templates//Services.html",true;
-        alert("Sign up successful");
-    }
-}
+// function passwordConfirmation2() {
+//     var password = document.getElementById("pass").value;
+//     var confirmPassword = document.getElementById("confirmpass").value;
+//     if (password == confirmPassword) {
+//         window.location.assign = "/frontend/templates//Services.html",true;
+//         alert("Sign up successful");
+//     }
+// }

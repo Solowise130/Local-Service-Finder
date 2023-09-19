@@ -16,14 +16,38 @@ service providers
 def index():
     '''handles the index page
     '''
-    pass
+    return render_template('Home.html')
+
+@app.route('/about_us')
+def about():
+    '''handles about us page
+    '''
+    return render_template('About-Us.html')
+
+@app.route('/faqs')
+def faq():
+    '''handles faq page
+    '''
+    return render_template('FAQs.html')
+
+@app.route('/services')
+def service():
+    '''handles services page
+    '''
+    return render_template('Services.html')
+
+@app.route('/contact-us')
+def contact():
+    '''handles services page
+    '''
+    return render_template('Contact-us.html')
+
 
 @app.route('/serviceProvider/signup')
 def signup():
     '''handles signup page
     '''
-    pass
-    # return render_template('signup.html')
+    return render_template('Sign-up-sp.html')
 
 
 @app.route('/serviceProvider/signup', methods=['POST'])
@@ -34,35 +58,33 @@ def signup_post():
     end point
     """
 
-    json_data = request.get_json()
-    new_servce_provider = db.add_service_provider(**json_data)
+    form_data = request.form
+    print(form_data)
+    new_servce_provider = db.add_service_provider(**form_data)
     if new_servce_provider is None:
         flash('Email address alerady exists')
         return jsonify({'error': 'error'})
-        # return redirect(url_for('signup'))
     
     print({
         'status': f'New service provider \
             {new_servce_provider.first_name} {new_servce_provider.last_name} created'
         })
-    return jsonify({'success': 'success'})
-    # return redirect(url_for('signin'))
+    return redirect(url_for('signin'))
 
 
 @app.route('/serviceProvider/signIn')
 def signin():
     '''signin a service provider
     '''
-    pass
-    # return render_template('login.html')
+    return render_template('Sign-In.html')
 
 
 @app.route('/serviceProvider/signIn', methods=['POST'])
 def signin_post():
     '''signin a service provider
     '''
-    json_data = request.get_json()
-    auth = db.signin_service_provider(**json_data)
+    form_data = request.form
+    auth = db.signin_service_provider(**form_data)
     if not auth:
         return jsonify({'error': 'error'}), 401
     if auth['status'] == 'success':
