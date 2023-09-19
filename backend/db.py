@@ -37,8 +37,8 @@ class DB:
         if not kwargs:
             return None
 
-        first_name = kwargs.get('firstName')
-        last_name = kwargs.get('lastName')
+        first_name = kwargs.get('first_name')
+        last_name = kwargs.get('last_name')
         location = kwargs.get('location')
         email = kwargs.get('email')
         password = kwargs.get('password')

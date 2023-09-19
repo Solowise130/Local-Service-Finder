@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav{
+    background: green;
+    padding: 10px 40px 10px 70px;
+    border-left: none;
+    border-right:none;
+    height: 50px;
+    color: white;
+}
+
+nav li{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li.logo{
+    flex:1;
+    font-size: 30px;
+    font-weight: 700;
+    float: left;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li.search-icon{
+    display: inline-flex;
+    float: right;
+    padding: 0px 25px;
+}
+ 
+nav ul .search-icon .icon{
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+nav ul input{
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    margin-right: 5px; 
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-provider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+.service {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform .3s;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.service h2, .service p {
+    margin: 0;
+}
+
+.star {
+    font-size: 2em;
+    color: gray;
+    cursor: pointer;
+}
+.star.rated {
+    color: gold;
+}
+
+
+
+  

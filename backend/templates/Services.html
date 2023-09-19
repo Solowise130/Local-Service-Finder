@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/d2b0b7685a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Services</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class = "logo"><a href="{{ url_for('index') }}">ServiceFinder</a></li>
+            <li class = "search-icon">
+                <input type="search" name="search" placeholder="Search">
+                <label class="icon"><span class = "fas fa-search"></span></label>
+            </li>
+        </ul>
+    </nav>
+    <div class="service-provider-container">
+        <h1>Seeking top-notch professionals for your service needs?</h1>
+        <h2 class="description">You're in the right place</h2>
+        <br>
+        <p class="overview">Meet our skilled and dependable team, ready to bring your visions to life. Covering everything from electricians to painters, plumbers, barbers, etc. We're your one-stop service solution.
+            Whether it's repairs, renovations, or custom requests, we prioritize quality and efficiency. Our professionals utilize the latest techniques, ensuring outstanding craftsmanship. From minor fixes to major overhauls, trust our team for unparalleled service. Countless satisfied customers vouch for our excellence. Quality. Reliability. Satisfaction. That's our commitment.
+           
+            <br>
+            <br>
+            <h3>Just a Click And We Are At Your Door Step.</h3></p>
+            <br>
+            <hr>
+            <br>
+        <div class="services-grid">
+    
+            <!-- Each Service Provider -->
+            <div class="service-card">
+                <a href="Service-providers/Plumber.html"> 
+                    <img src="../static/css/PLUMBER.jpg" alt="Image not Found">
+                    <h3>Plumber</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Make-up.html">
+                    <img src="../static/css/Make-up.jpg" alt="Image not Found">
+                    <h3>Make-up Artist</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Hairdresser.html">
+                    <img src="../static/css/hair stylist.jpg" alt="Image not Found">
+                    <h3>Hairdresser</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Technician.html">
+                    <img src="../static/css/technician.jpg" alt="Image not Found">
+                    <h3>Technician</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Logistics.html">
+                    <img src="../static/css/Logistics services.jpg" alt="Image not Found">
+                    <h3>Logistics Services</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Barber.html">
+                    <img src="../static/css/barber.jpg" alt="Image not Found">
+                    <h3>Barber</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Electrician.html">
+                    <img src="../static/css/Electrician.jpg" alt="Image not Found">
+                    <h3>Electrician</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Mower.html">
+                    <img src="../static/css/Mower.jpg" alt="Image not Found">
+                    <h3>Mower</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Security-men.html">
+                    <img src="../static/css/Security-men.jpg" alt="Image not Found">
+                    <h3>Security Men</h3>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="Service-providers/Tailor.html">
+                    <img src="../static/css/tailor.jpg" alt="Image not Found">
+                    <h3>Tailor</h3>
+                </a>
+            </div>
+            <p class="home"><a href="{{ url_for('index') }}"><strong>Homepage</strong></a></p>
+        </div>
+    </div>
+  
+</body>
+</html>
