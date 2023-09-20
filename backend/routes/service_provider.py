@@ -16,6 +16,7 @@ service providers
 def index():
     '''handles the index page
     '''
+    # return render_template('Account.html')
     return render_template('Home.html')
 
 
