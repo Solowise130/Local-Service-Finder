@@ -64,7 +64,7 @@ class DB:
         new_service_provider.email = email
         new_service_provider.location = location.title()
         new_service_provider.phone_number = contact_num
-        new_service_provider.description = description.title()
+        new_service_provider.description = description
         new_service_provider.created_at = created_at
         new_service_provider.hashed_password = hash_password(password)
         new_service_provider.services = service.title()
