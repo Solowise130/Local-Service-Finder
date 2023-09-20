@@ -117,3 +117,10 @@ def signOut():
     logout_user()
     
     return jsonify({'status': 'success'}), 200
+
+@app.route('/account')
+@login_required
+def account():
+    '''handle account
+    '''
+    return render_template('Account.html')
