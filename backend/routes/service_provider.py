@@ -41,8 +41,9 @@ def service(service_type=None):
     if not service_type:
         return render_template('Services.html')
     
+    service_type = service_type.title()
     service_provider = db.get_service_providers(service_type[:-1])
-    return render_template('service.html', service_provided=service_type, service_provider=service_provider)
+    return render_template('service.html', service_provided=service_type, service_providers=service_provider)
 
 
 @app.route('/contact-us')

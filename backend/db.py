@@ -59,15 +59,15 @@ class DB:
             return None
         
         new_service_provider = ServiceProvider()
-        new_service_provider.first_name = first_name
-        new_service_provider.last_name = last_name
+        new_service_provider.first_name = first_name.title()
+        new_service_provider.last_name = last_name.title()
         new_service_provider.email = email
-        new_service_provider.location = location
+        new_service_provider.location = location.title()
         new_service_provider.phone_number = contact_num
-        new_service_provider.description = description
+        new_service_provider.description = description.title()
         new_service_provider.created_at = created_at
         new_service_provider.hashed_password = hash_password(password)
-        new_service_provider.services = service
+        new_service_provider.services = service.title()
 
         self.__session.add(new_service_provider)
         self.__session.commit()
