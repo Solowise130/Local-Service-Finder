@@ -24,12 +24,12 @@
         </ul>
     </nav>
     <div class="service-provider-container">
-        <h1>Barbers</h1>
+        <h1>{{ service_provided }}</h1>
         <div class="services-grid">
             <div class="service">
                 <a href="#" >
-                    <h2>Service Name 1</h2>
-                    <p>Location: Location 1</p> </a>
+                    <h2>{{ service_provider[0].first_name }} {{ service_provider[0].last_name }}</h2>
+                    <p>Location: {{ service_provider[0].location }}</p> </a>
                     <p>Rating: <span class="rating-system" id="stars1">
                         <span class="star" data-rating="1">★</span>
                         <span class="star" data-rating="2">★</span>

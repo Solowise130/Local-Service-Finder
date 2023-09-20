@@ -46,55 +46,55 @@
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Make-up.html">
+                <a href="/services/make-up-artists">
                     <img src="../static/css/Make-up.jpg" alt="Image not Found">
                     <h3>Make-up Artist</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Hairdresser.html">
+                <a href="/services/hairdressers">
                     <img src="../static/css/hair stylist.jpg" alt="Image not Found">
                     <h3>Hairdresser</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Technician.html">
+                <a href="/services/technicians">
                     <img src="../static/css/technician.jpg" alt="Image not Found">
                     <h3>Technician</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Logistics.html">
+                <a href="/services/logistics">
                     <img src="../static/css/Logistics services.jpg" alt="Image not Found">
                     <h3>Logistics Services</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Barber.html">
+                <a href="/services/barber">
                     <img src="../static/css/barber.jpg" alt="Image not Found">
                     <h3>Barber</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Electrician.html">
+                <a href="/services/electricians">
                     <img src="../static/css/Electrician.jpg" alt="Image not Found">
                     <h3>Electrician</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Mower.html">
+                <a href="/services/mowers">
                     <img src="../static/css/Mower.jpg" alt="Image not Found">
                     <h3>Mower</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Security-men.html">
+                <a href="/services/security-men">
                     <img src="../static/css/Security-men.jpg" alt="Image not Found">
                     <h3>Security Men</h3>
                 </a>
             </div>
             <div class="service-card">
-                <a href="Service-providers/Tailor.html">
+                <a href="/services/tailor">
                     <img src="../static/css/tailor.jpg" alt="Image not Found">
                     <h3>Tailor</h3>
                 </a>
@@ -102,18 +102,5 @@
             <p class="home"><a href="{{ url_for('index') }}"><strong>Homepage</strong></a></p>
         </div>
     </div>
-  <script>
-    function query(service) {
-      let queryParams = new URLSearchParams(window.location.search);
-      queryParams.set("service", service);
-
-      history.pushState(null, null, "?"+queryParams.toString());
-      location.reload();
-
-      $(window).bind('popstate', function(){
-    window.location.href = window.location.href;
-  });
-    }
-  </script>
 </body>
 </html>

@@ -108,6 +108,22 @@ class DB:
             return service_provider
         return None
 
+
+    def get_service_providers(self, service):
+        '''Get all service providers for a service
+        '''
+        if not service:
+            return None
+
+        service_providers = self.__session.query(ServiceProvider).filter(
+            ServiceProvider.services == service
+        ).all()
+
+        if service_providers:
+            return service_providers
+        
+        return None
+    
     def signin_service_provider(self, **kwargs):
         email = kwargs.get('email')
         password = kwargs.get('password')

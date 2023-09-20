@@ -18,17 +18,20 @@ def index():
     '''
     return render_template('Home.html')
 
+
 @app.route('/about_us')
 def about():
     '''handles about us page
     '''
     return render_template('About-Us.html')
 
+
 @app.route('/faqs')
 def faq():
     '''handles faq page
     '''
     return render_template('FAQs.html')
+
 
 @app.route('/services')
 @app.route('/services/<service_type>')
@@ -38,7 +41,9 @@ def service(service_type=None):
     if not service_type:
         return render_template('Services.html')
     
-    return render_template('service.html', service_type=service_type)
+    service_provider = db.get_service_providers(service_type[:-1])
+    return render_template('service.html', service_provided=service_type, service_provider=service_provider)
+
 
 @app.route('/contact-us')
 def contact():
@@ -96,7 +101,6 @@ def signin_post():
         print(current_user.email)
         return jsonify({'status': 'Your logged in'}), 200
     
-
 
 @app.route('/logout')
 @login_required
