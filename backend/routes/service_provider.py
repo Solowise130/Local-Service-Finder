@@ -101,7 +101,11 @@ def signin_post():
     if auth['status'] == 'success':
         login_user(auth['service_provider'])
         print(current_user.email)
-        return jsonify({'status': 'Your logged in'}), 200
+        print(current_user)
+        #return jsonify({'status': 'Your logged in'}), 200
+        #reviews = db.get_reviews(auth['service_provider'].id)
+        return redirect(url_for('account', user_id=current_user.id, review_id=auth['service_provider'].id))
+        # return render_template('Account.html', user=current_user, reviews=reviews)
     
 
 @app.route('/logout')
@@ -109,6 +113,7 @@ def signin_post():
 def signOut():
     '''signout a service provider
     '''
+    
     user = current_user
     print(user.email)
     if current_user.is_authenticated:
@@ -118,9 +123,22 @@ def signOut():
     
     return jsonify({'status': 'success'}), 200
 
-@app.route('/account')
+@app.route('/serviceProvider/Account', methods=['GET', 'POST'])
 @login_required
 def account():
     '''handle account
     '''
-    return render_template('Account.html')
+
+    user_id = request.args.get('user_id')
+    if (current_user.id != int(user_id)):
+        return render_template('Sign-In.html')
+    user = db.get_service_provider(user_id)
+    reviews = request.args.get('review')
+    json_data = request.form
+    print(json_data)
+    if request.method == 'POST':
+        updated = db.update_service_provider(**json_data)
+        print(updated)
+        return render_template('Account.html', user=updated, reviews=reviews)
+    
+    return render_template('Account.html', user=user, reviews=reviews)

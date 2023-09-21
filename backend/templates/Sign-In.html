@@ -22,7 +22,7 @@
         </div>
         <div class="form-content">
           <h2>LOGIN</h2>
-          <form action="/serviceProvider/signIn" target="_blank" method="post">
+          <form action="{{url_for('signin_post')}}" target="_blank" method="post">
             <div class="input-field">
               <input type="email" name="email" required />
               <label>Email</label>
