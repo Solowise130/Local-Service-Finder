@@ -155,13 +155,9 @@ class DB:
         return None
     
     
-    def update_service_provider(self, **kwargs):
+    def update_service_provider(self, id, **kwargs):
         '''Update service provider'''
-        if not kwargs:
-            return None
-
-        id = kwargs.get('user_id')
-        if not id:
+        if not id or not kwargs:
             return None
 
         service_provider = self.__session.query(ServiceProvider).filter(
@@ -171,15 +167,11 @@ class DB:
         if not service_provider:
             return None
 
-        attributes_to_update = ['first_name', 'last_name', 'location', 'email',
-                            'password', 'service', 'contact_num', 'description']
+        attributes_to_update = ['location', 'services', 'phone_number', 'description']
 
         for attr_name in attributes_to_update:
             if attr_name in kwargs:
                 setattr(service_provider, attr_name, kwargs[attr_name])
-
-        if 'password' in kwargs:
-            service_provider.hashed_password = hash_password(kwargs['password'])
 
         self.__session.commit()
 

@@ -100,11 +100,11 @@ def signin_post():
         return jsonify({'error': 'error'}), 401
     if auth['status'] == 'success':
         login_user(auth['service_provider'])
-        print(current_user.email)
-        print(current_user)
+        # print(current_user.email)
+        # print(current_user)
         #return jsonify({'status': 'Your logged in'}), 200
         #reviews = db.get_reviews(auth['service_provider'].id)
-        return redirect(url_for('account', user_id=current_user.id, review_id=auth['service_provider'].id))
+        return redirect(url_for('account', id=current_user.id))
         # return render_template('Account.html', user=current_user, reviews=reviews)
     
 
@@ -129,16 +129,16 @@ def account():
     '''handle account
     '''
 
-    user_id = request.args.get('user_id')
-    if (current_user.id != int(user_id)):
+    id = request.args.get('id')
+    if (current_user.id != int(id)):
         return render_template('Sign-In.html')
-    user = db.get_service_provider(user_id)
-    reviews = request.args.get('review')
-    json_data = request.form
-    print(json_data)
+    user = db.get_service_provider(id)
+    reviews = user.reviews
     if request.method == 'POST':
-        updated = db.update_service_provider(**json_data)
+        print(request.form)
+        updated = db.update_service_provider(id, **request.form)
         print(updated)
-        return render_template('Account.html', user=updated, reviews=reviews)
+        return redirect(url_for('account', id=current_user.id))
+        # return render_template('Account.html', user=updated, reviews=reviews)
     
     return render_template('Account.html', user=user, reviews=reviews)
