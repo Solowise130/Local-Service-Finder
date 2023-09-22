@@ -162,3 +162,12 @@ form button:hover{
         padding: 30px 20px;
     }
 }
+
+.flashes {
+    color: grey;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    text-align: center;
+}

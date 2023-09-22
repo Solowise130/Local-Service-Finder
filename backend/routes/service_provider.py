@@ -72,7 +72,6 @@ def signup_post():
     print(form_data)
     new_servce_provider = db.add_service_provider(**form_data)
     if new_servce_provider is None:
-        flash('Email address already exists')
         return redirect(url_for('signup'))
     
     print({
