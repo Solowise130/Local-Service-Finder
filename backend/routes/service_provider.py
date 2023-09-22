@@ -139,6 +139,5 @@ def account():
         updated = db.update_service_provider(id, **request.form)
         print(updated)
         return redirect(url_for('account', id=current_user.id))
-        # return render_template('Account.html', user=updated, reviews=reviews)
     
     return render_template('Account.html', user=user, reviews=reviews)
