@@ -52,18 +52,6 @@
         <label for="location">My Location:</label>
         <input type="text" id="location" value="{{ user.location }}" required>
     </div>
-    <!-- <div class="form-group">
-        <label for="password">My password:</label>
-        <input type="password" id="password" value="{{ user.hashed_password}}" required>
-    </div> -->
-    <div class="form-group">
-        <label for="password">Account Reviews:</label>
-        <input type="reviews" id="reviews" value="{{ reviews.rating }}" disabled>
-    </div>
-    <!-- <div class="form-group">
-        <label for="password">Account Commentes:</label>
-        <input type="reviews" id="reviews" value="{{ reviews.comment }}" disabled>
-    </div> -->
     <div class="form-group">
         <label for="serviceDescription">Description of Service:</label>
         <textarea id="serviceDescription" name="description" value="{{ user.description }}" required></textarea> <!-- Increased size -->
