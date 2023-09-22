@@ -16,7 +16,6 @@ service providers
 def index():
     '''handles the index page
     '''
-    # return render_template('Account.html')
     return render_template('Home.html')
 
 
@@ -73,8 +72,8 @@ def signup_post():
     print(form_data)
     new_servce_provider = db.add_service_provider(**form_data)
     if new_servce_provider is None:
-        flash('Email address alerady exists')
-        return jsonify({'error': 'error'})
+        flash('Email address already exists')
+        return redirect(url_for('signup'))
     
     print({
         'status': f'New service provider \
@@ -131,13 +130,14 @@ def account():
 
     id = request.args.get('id')
     if (current_user.id != int(id)):
-        return render_template('Sign-In.html')
+        return redirect(url_for('signin'))
+    
     user = db.get_service_provider(id)
     reviews = user.reviews
     if request.method == 'POST':
         print(request.form)
         updated = db.update_service_provider(id, **request.form)
-        print(updated)
+        flash('Data successfully updated', 'success')
         return redirect(url_for('account', id=current_user.id))
     
     return render_template('Account.html', user=user, reviews=reviews)

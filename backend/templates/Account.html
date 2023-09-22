@@ -26,6 +26,15 @@
 <h2>Profile Page</h2>
 
 </div>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
 <form  id="profileForm" class="h2" method='post'>
     <h3>Update Profile:</h3>
     <div class="form-group">
