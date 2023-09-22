@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+  <link rel="stylesheet" href="../static/css/account.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet"/>
@@ -19,7 +19,9 @@
 
 <nav>
     <ul>
-        <li class = "logo"><a href="{{ url_for('index') }}">ServiceFinder</a></li>
+        <li class = "logo"><a href="./Home.html">ServiceFinder</a></li>
+         <li><a href ="Sign-In.html">
+         <button>LOG IN</button></a></li>
     </ul>
 </nav>
 <div class = "intro">
@@ -30,23 +32,23 @@
     <h3>Update Profile:</h3>
     <div class="form-group">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" disabled>
+        <input type="text" id="firstName" name="firstName" disabled>
     </div>
     <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" disabled>
+        <input type="text" id="lastName"name="lastName" disabled>
     </div>
     <div class="form-group">
         <label for="email">Email Address:</label>
-        <input type="text" id="email" disabled>
+        <input type="text" id="email" name="email" disabled>
     </div>
     <div class="form-group">
         <label for="mobileNumber">Mobile Number:</label>
-        <input type="text" id="mobileNumber" required>
+        <input type="text" id="mobileNumber" name="mobileNumber" required>
     </div>
     <div class="form-group">
         <label for="serviceOffered">Service Offered:</label>
-        <input type="text" id="serviceOffered" required>
+        <input type="text" id="serviceOffered" name="service" required>
     </div>
     <div class="form-group">
         <label for="serviceDescription">Description of Service:</label>
