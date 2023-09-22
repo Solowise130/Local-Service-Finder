@@ -167,12 +167,10 @@ class DB:
         if not service_provider:
             return None
 
-        attributes_to_update = ['location', 'services', 'phone_number', 'description']
+        for key, value in kwargs.items():
+            setattr(service_provider, key, value)
 
-        for attr_name in attributes_to_update:
-            if attr_name in kwargs:
-                setattr(service_provider, attr_name, kwargs[attr_name])
-
+        self.__session.add(service_provider)
         self.__session.commit()
 
         return service_provider
