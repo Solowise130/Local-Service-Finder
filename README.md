@@ -1,4 +1,4 @@
-                    Local-Service-Finder
+# Local-Service-Finder
 
 This is a collaborative project put up by a team of four vibrant ALX Software Engineering trainees to showcase the skills acquired in our one-year intensive training in the ALX Cohort 9 2022/23 Session.
 
@@ -224,7 +224,7 @@ Then run the server by doing
 flask run
 ```
 
-Open the api into your brownser and  do the different activities on the web site
+Open the api adress and port int your into your brownser and  do the different activities on the web site
     
 
     
