@@ -124,3 +124,11 @@ input[type="submit"] {
     margin-top: 20px;
     font-size: 22px;
 }
+.flashes {
+    color: grey;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    text-align: center;
+}

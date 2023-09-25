@@ -64,7 +64,7 @@ class DB:
         new_service_provider.email = email
         new_service_provider.location = location.title()
         new_service_provider.phone_number = contact_num
-        new_service_provider.description = description.title()
+        new_service_provider.description = description
         new_service_provider.created_at = created_at
         new_service_provider.hashed_password = hash_password(password)
         new_service_provider.services = service.title()
@@ -139,6 +139,41 @@ class DB:
             service_provider.is_active = True
             return {'status': 'success', 'service_provider': service_provider}
         return None
+    
+    def get_reviews(self, id):
+        '''Get reviews by service provider Id
+        '''
+        if not id:
+            return None
+
+        reviews = self.__session.query(Review).filter(
+            Review.serviceProviderId == id
+        ).all()
+
+        if reviews:
+            return reviews
+        return None
+    
+    
+    def update_service_provider(self, id, **kwargs):
+        '''Update service provider'''
+        if not id or not kwargs:
+            return None
+
+        service_provider = self.__session.query(ServiceProvider).filter(
+        ServiceProvider.id == id
+        ).first()
+
+        if not service_provider:
+            return None
+
+        for key, value in kwargs.items():
+            setattr(service_provider, key, value)
+
+        self.__session.add(service_provider)
+        self.__session.commit()
+
+        return service_provider
 
 
 db = DB()

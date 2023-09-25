@@ -16,7 +16,6 @@ service providers
 def index():
     '''handles the index page
     '''
-    # return render_template('Account.html')
     return render_template('Home.html')
 
 
@@ -73,8 +72,7 @@ def signup_post():
     print(form_data)
     new_servce_provider = db.add_service_provider(**form_data)
     if new_servce_provider is None:
-        flash('Email address alerady exists')
-        return jsonify({'error': 'error'})
+        return redirect(url_for('signup'))
     
     print({
         'status': f'New service provider \
@@ -100,8 +98,12 @@ def signin_post():
         return jsonify({'error': 'error'}), 401
     if auth['status'] == 'success':
         login_user(auth['service_provider'])
-        print(current_user.email)
-        return jsonify({'status': 'Your logged in'}), 200
+        # print(current_user.email)
+        # print(current_user)
+        #return jsonify({'status': 'Your logged in'}), 200
+        #reviews = db.get_reviews(auth['service_provider'].id)
+        return redirect(url_for('account', id=current_user.id))
+        # return render_template('Account.html', user=current_user, reviews=reviews)
     
 
 @app.route('/logout')
@@ -109,6 +111,7 @@ def signin_post():
 def signOut():
     '''signout a service provider
     '''
+    
     user = current_user
     print(user.email)
     if current_user.is_authenticated:
@@ -118,9 +121,22 @@ def signOut():
     
     return jsonify({'status': 'success'}), 200
 
-@app.route('/account')
+@app.route('/serviceProvider/Account', methods=['GET', 'POST'])
 @login_required
 def account():
     '''handle account
     '''
-    return render_template('Account.html')
+
+    id = request.args.get('id')
+    if (current_user.id != int(id)):
+        return redirect(url_for('signin'))
+    
+    user = db.get_service_provider(id)
+    reviews = user.reviews
+    if request.method == 'POST':
+        print(request.form)
+        updated = db.update_service_provider(id, **request.form)
+        flash('Data successfully updated', 'success')
+        return redirect(url_for('account', id=current_user.id))
+    
+    return render_template('Account.html', user=user, reviews=reviews)
