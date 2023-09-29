@@ -27,7 +27,8 @@ nav ul li.logo{
     flex:1;
     font-size: 30px;
     font-weight: 700;
-    float: left;
+    float: right;
+    margin-right: 20px;
 }
 
 nav ul li a{
