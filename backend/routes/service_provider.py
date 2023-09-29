@@ -142,3 +142,8 @@ def account():
         return redirect(url_for('account', id=current_user.id))
     
     return render_template('Account.html', user=user, reviews=reviews)
+
+@app.errorhandler(404)
+def handle404():
+    '''handled 404 error'''
+    return render_template('404.html')
