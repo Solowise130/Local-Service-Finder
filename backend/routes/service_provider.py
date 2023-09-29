@@ -95,7 +95,9 @@ def signin_post():
     form_data = request.form
     auth = db.signin_service_provider(**form_data)
     if not auth:
-        return jsonify({'error': 'error'}), 401
+        flash('Please Try again with correct credentials')
+        return render_template('Sign-In.html')
+         
     if auth['status'] == 'success':
         login_user(auth['service_provider'])
         # print(current_user.email)
@@ -119,7 +121,7 @@ def signOut():
 
     logout_user()
     
-    return jsonify({'status': 'success'}), 200
+    return render_template('Home.html')
 
 @app.route('/serviceProvider/Account', methods=['GET', 'POST'])
 @login_required

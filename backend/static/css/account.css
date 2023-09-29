@@ -39,6 +39,7 @@ nav ul li a{
 body {
     font-family: 'Ubuntu', sans-serif;
 }
+
 @keyframes moving {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }

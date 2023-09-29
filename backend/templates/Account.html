@@ -19,20 +19,22 @@
 
 <nav>
     <ul>
-        <li class = "logo"><a href="{{ url_for('index') }}"> LOG OUT</a></li>
+        <li class = "logo"><a href="{{ url_for('signOut') }}"> LOG OUT</a></li>
     </ul>
 </nav>
 <div class = "intro">
 <h2>Profile Page</h2>
 
 </div>
+
 {% with messages = get_flashed_messages() %}
     {% if messages %}
-        <ul class="flashes">
+    
+       
         {% for message in messages %}
-            <li>{{ message }}</li>
+            <p>{{ message }}<p>
         {% endfor %}
-        </ul>
+      
     {% endif %}
 {% endwith %}
 <form  id="profileForm" class="h2" method='post'>
