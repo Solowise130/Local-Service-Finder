@@ -36,8 +36,8 @@
       </p>
       <p>Want to be a service provider? <a href="{{ url_for('signup') }}">Join us</a></p>
       <p>Already one of us? <a href="{{ url_for('signin') }}">Reconnect with us</a></p>
-      <form action="/search" class="search-bar">
-        <input type="text" placeholder="What service do you need today?" />
+      <form action="/search" class="search-bar" method="post">
+        <input type="text" name="service" placeholder="What service do you need today?" />
         <button type="submit">Search</button>
       </form>
       </div>

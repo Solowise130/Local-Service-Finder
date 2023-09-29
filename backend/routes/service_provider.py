@@ -1,5 +1,5 @@
 from backend import app
-from flask import render_template, request, jsonify, url_for, redirect, flash
+from flask import render_template, request, jsonify, url_for, redirect, flash, abort
 from backend.models.serviceProvider import ServiceProvider
 from backend.db import db
 from flask_login import (login_user,
@@ -143,7 +143,26 @@ def account():
     
     return render_template('Account.html', user=user, reviews=reviews)
 
+
+@app.route('/search', methods=['POST'])
+def search():
+    '''handle search for service providers
+    '''
+    service = request.form['service']
+    
+    if not service:
+        return redirect(url_for('index'))
+    
+    service = service.title() if service[-1] == 's' else f'{service}s'.title()
+    
+    service_providers = db.get_service_providers(service=service[:-1])
+    
+    if service_providers:
+        return render_template('service.html', service_provided=service, service_providers=service_providers)
+    else:
+        abort(404)
+
 @app.errorhandler(404)
-def handle404():
-    '''handled 404 error'''
+def handle404(error):
+    '''handle 404 error'''
     return render_template('404.html'), 404
