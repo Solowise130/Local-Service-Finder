@@ -146,4 +146,4 @@ def account():
 @app.errorhandler(404)
 def handle404():
     '''handled 404 error'''
-    return render_template('404.html')
+    return render_template('404.html'), 404
