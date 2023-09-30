@@ -121,7 +121,7 @@ def signOut():
 
     logout_user()
     
-    return render_template('Home.html')
+    return redirect(url_for('index'))
 
 @app.route('/serviceProvider/Account', methods=['GET', 'POST'])
 @login_required
