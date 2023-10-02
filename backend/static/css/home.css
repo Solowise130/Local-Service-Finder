@@ -101,13 +101,15 @@ a.active, a:hover{
 section{
   background: url(./emmanuel-ikwuegbu.jpg) no-repeat;
   background-size: cover;
-  height: calc(100vh - 80px);
-  width:100%;
+  background-position: center;  /* Ensure the center of the image is always visible */
+  height: 100vh;                /* Adjusted to take full viewport height */
+  width: 100%;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .container h1 {
   text-align: center;
   font-size: 46px;
